@@ -15,11 +15,8 @@ import java.util.UUID;
 
 @RestController
 public class RatingsController {
-
 	@Autowired
 	private RatingsService ratingsService;
-
-
 	//create a post method named submitRatings with return type as ResponseEntity
 		//define the method parameter rating of type Rating, use @RequestBody for mapping
 		

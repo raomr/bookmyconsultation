@@ -1,19 +1,35 @@
 package com.upgrad.bookmyconsultation.exception;
 
 public class SlotUnavailableException extends RuntimeException {
-    private String errorCode;
-    private String description;
 
-    public SlotUnavailableException(){
-        this.errorCode = "SLT-400";
-        this.description = "Slots Unavaliable";
+    private String message = "Slots unavailable for this date and time!!! Please choose another timeslot!";
+    private String code = "400";
+
+    @Override
+    public String getMessage() {
+        return message;
     }
 
-    public String getErrorCode() {
-        return errorCode;
+    public String getCode() {
+        return code;
     }
 
-    public String getDescription() {
-        return description;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ErrorResponse {\n");
+
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
+
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }
